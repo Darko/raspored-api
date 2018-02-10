@@ -1,6 +1,7 @@
 import app from '../config/express';
 import config from '../config/environment';
 import publicRouter from './public';
+import authRouter from '../modules/auth/index';
 
 const publicRoutes = config.public;
 const publicBase = `${publicRoutes.base}/v${publicRoutes.version}`;
@@ -15,6 +16,7 @@ app.get('/status', (req, res) => res.sendStatus(200));
 
 // Endpoints
 app.use(publicBase, publicRouter);
+app.use('/auth', authRouter);
 
 // 404
 app.route('/*').get((req, res) => res.boom.notFound());
