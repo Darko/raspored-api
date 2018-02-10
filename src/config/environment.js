@@ -21,6 +21,11 @@ const config = {
   public: {
     base: '/public',
     version: 1
+  },
+
+  admin: {
+    base: '/admin',
+    version: 1
   }
 }
 

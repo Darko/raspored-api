@@ -11,7 +11,8 @@ const UserSchema = new Schema({
   role: { type: String, enum: UserConstants.roles, default: 'user' },
   banned: { type: Boolean, default: false },
   suspended: { type: Boolean, default: false },
-  providers: []
+  providers: [],
+  lastLogin: { type: Date } 
 }, { versionKey: false });
 
 export default mongoose.model('User', UserSchema);

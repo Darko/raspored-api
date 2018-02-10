@@ -2,6 +2,7 @@ import moment from 'moment';
 import jwt from 'jsonwebtoken';
 import constants from '../../constants';
 import secrets from '../../config/secrets';
+import User from '../../models/user';
 
 const appConstants = constants.app;
 
