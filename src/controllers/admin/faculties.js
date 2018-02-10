@@ -2,7 +2,7 @@ import Faculty from '../../models/faculty';
 
 export function index(req, res, next) {
   Faculty.find()
-  .then((faculties = []) => res.json(faculties))
+  .then((faculties = []) => res.send(faculties))
   .catch(next);
 }
 
@@ -18,6 +18,6 @@ export function create(req, res, next) {
   });
 
   newFaculty.save()
-  .then(faculty => res.json(faculty))
+  .then(faculty => res.send(faculty))
   .catch(next);
 }

@@ -11,7 +11,7 @@ const adminRoutes = config.admin;
 const adminBase = `${adminRoutes.base}/v${adminRoutes.version}`;
 
 // Status
-app.get('/', (req, res) => res.json({
+app.get('/', (req, res) => res.send({
   statusCode: 200,
   message: '👋'
 }));

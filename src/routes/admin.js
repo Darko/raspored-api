@@ -10,5 +10,6 @@ router.use(express.json({ limit: '1mb' }));
 router.use(express.urlencoded({ extended: false }));
 
 router.use('/faculties', adminRoutes.faculties);
+router.use('/subjects', adminRoutes.subjects);
 
 export default router;

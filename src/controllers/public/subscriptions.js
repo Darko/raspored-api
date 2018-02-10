@@ -3,7 +3,7 @@ import Subscription from '../../models/subscription';
 export function index(req, res, next) {
   Subscription.find({ user: req.user._id })
   .populate('subject')
-  .then((subscriptions = []) => res.json(subscriptions))
+  .then((subscriptions = []) => res.send(subscriptions))
   .catch(next);
 }
 
@@ -15,7 +15,7 @@ export function show(req, res, next) {
       return res.boom.notFound();
     }
 
-    return res.json(subscription);
+    return res.send(subscription);
   })
   .catch(next);
 }
@@ -29,7 +29,7 @@ export function subscribe(req, res, next) {
   });
 
   newSubscription.save()
-  .then(subscription => res.json(subscription))
+  .then(subscription => res.send(subscription))
   .catch(next);
 }
 

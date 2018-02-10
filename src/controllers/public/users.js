@@ -8,7 +8,7 @@ export function profile(req, res, next) {
   .then(user => {
     if (!user) return res.boom.notFound();
 
-    return res.json(user);
+    return res.send(user);
   })
   .catch(next);
 }

@@ -19,5 +19,5 @@ export function login(req, res) {
 
   res.cookie(constants.app.cookie, token, { maxAge: cookieMaxAge });
 
-  return res.json(token);
+  return res.send(token);
 }
