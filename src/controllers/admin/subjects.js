@@ -44,6 +44,9 @@ export function updateExam(req, res, next) {
   Subject.findOne({ _id: subject })
   .then(subject => {
     const examToUpdate = subject.exams.id(exam);
+    
+    if (!examToUpdate) return res.boom.notFound();
+
     examToUpdate.set({ isFinal: req.body.isFinal });
 
     return subject.save();
@@ -63,6 +66,6 @@ export function removeExam(req, res, next) {
 
     return subject.save();
   })
-  .then(subject => res.send(subject))
+  .then(subject => res.sendStatus(202))
   .catch(next);
 }
